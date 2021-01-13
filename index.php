@@ -1,12 +1,36 @@
 <?php
-header("refresh: 5; https://oceancodeit.com/obada/public/");
+header("refresh: 0; https://oceancodeit.com/obada/public/");
+echo '<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
 
-	echo '<title>Laravel Installed</title><div style="background: #e9ffed; border: 1px solid #b0dab7; padding: 15px;" align="center" >
-	<font size="5" color="#182e7a">Laravel is installed successfully.</font><br /><br />
-	<font size="4">Laravel is a Framework and doesn\'t have an index page.<br /><br />
-	You will be redirected to its "public" folder in 5 seconds...<br /><br />
-	Laravel is a clean and classy framework for PHP web development.
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
 
-Freeing you from spaghetti code, Laravel helps you create wonderful applications using simple, expressive syntax. Development should be a creative experience that you enjoy, not something that is painful. Enjoy the fresh air.
-</font></div>';
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<div class="loader"></div>
+
+</body>
+</html>';
 ?>
