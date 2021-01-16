@@ -16,6 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
+                        {{ __('Blog') }}
+                    </x-jet-nav-link>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -70,9 +75,13 @@
                 @endif
 
                 <!-- Settings Dropdown -->
+                @auth
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
+                           
+                                
+                            
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                     <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
@@ -121,6 +130,7 @@
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -144,6 +154,7 @@
         </div>
 
         <!-- Responsive Settings Options -->
+        @auth
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -213,5 +224,6 @@
                 @endif
             </div>
         </div>
+        @endauth
     </div>
 </nav>
