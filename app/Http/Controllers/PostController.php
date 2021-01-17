@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function indexJson()
     {
-        $posts = Post::latest()->with(['user','likes']);
+        $posts = Post::latest()->with(['user','likes'])->get();
         return $posts;
     }
 
