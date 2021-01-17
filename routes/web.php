@@ -28,6 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/users/{user:name}/posts',[UserPostController::class, 'index'])->name('users.posts');
 
 Route::get('/posts',[PostController::class, 'index'])->name('posts');
+Route::get('/posts/json',[PostController::class, 'indexJson'])->name('posts.json');
 Route::get('/posts/{post}',[PostController::class, 'show'])->name('posts.show');
 Route::post('/posts',[PostController::class, 'store']);
 Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.destroy');

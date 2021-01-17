@@ -18,6 +18,12 @@ class PostController extends Controller
         return view('posts.index',['posts' => $posts]);
     }
 
+    public function indexJson()
+    {
+        $posts = Post::latest()->with(['user','likes']);
+        return $posts;
+    }
+
     public function show(Post $post)
     {
         return view('posts.show', [
